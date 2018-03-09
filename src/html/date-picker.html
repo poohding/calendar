@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calendar</title>
+</head>
+<body>
+
+<div id="calendarWrap" class="calendar"></div>
+
+<div id="results"></div>
+
+<script src="../js/date-picker.js"></script>
+<script type="application/x-template" id="tmpl_calendar">
+    <div class="calendar__month">
+        <stong class="calendar__month__label"><%=currentYear%>.<%=currentMonth%></stong>
+        <button class="calendar__month__nav calendar__month__nav--prev">이전달</button>
+        <button class="calendar__month__nav calendar__month__nav--next">다음달</button>
+    </div>
+    <table class="calendar__day">
+        <thead>
+            <tr>
+                <%
+                for (var i = 0, len = weekDay.length; i < len; i++) {
+                %>
+                <th class="calendar__day__cell calendar__day__cell--weekday"><%=weekDay[i]%></th>
+                <%
+                }
+                %>
+            </tr>
+        </thead>
+        <tbody>
+        <%
+        for (var i = 0, len = day.length; i < len; i++) {
+        %>
+            <%
+            if (i % 7 === 0) {
+            %>
+            <tr>
+            <%
+            }
+            %>
+                <td class="<%=day[i].className%>"><%=day[i].date%></td>
+            <%
+            if (i % 7 === 7 - 1) {
+            %>
+            </tr>
+            <%
+            }
+            %>
+        <%
+        }
+        %>
+        </tbody>
+    </table>
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "extends": "stylelint-config-sass-guidelines",
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "rules": {
+        "indentation": [4],
+        "selector-class-pattern": null,
+        "order/properties-alphabetical-order": null,
+        "max-nesting-depth": null
+    }
+}
